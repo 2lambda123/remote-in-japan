@@ -343,8 +343,8 @@ function compile (data) {
 
   function registerInput () {
     options.searchInput.addEventListener('keyup', function (e) {
-      var key = e.which
-      if (isWhitelistedKey(key)) {
+      
+      {
         emptyResultsContainer()
         var query = e.target.value
         search(query)
