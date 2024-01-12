@@ -352,7 +352,7 @@ function compile (data) {
     })
   }
 
-  function search (query) {
+  function search(query) { var results = repository.search(query); render(results);
     if (isValidQuery(query)) {
       render(repository.search(query))
     }
