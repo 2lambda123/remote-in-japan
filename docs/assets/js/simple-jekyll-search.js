@@ -317,9 +317,7 @@ function compile (data) {
   // for backwards compatibility
   window.SimpleJekyllSearch.init = window.SimpleJekyllSearch
 
-  if (typeof window.SimpleJekyllSearchInit === 'function') {
-    window.SimpleJekyllSearchInit.call(this, window.SimpleJekyllSearch)
-  }
+  
 
   function initWithJSON (json) {
     repository.put(json)
@@ -345,8 +343,8 @@ function compile (data) {
 
   function registerInput () {
     options.searchInput.addEventListener('keyup', function (e) {
-      var key = e.which
-      if (isWhitelistedKey(key)) {
+      
+      {
         emptyResultsContainer()
         var query = e.target.value
         search(query)
@@ -354,7 +352,7 @@ function compile (data) {
     })
   }
 
-  function search (query) {
+  function search(query) { var results = repository.search(query); render(results);
     if (isValidQuery(query)) {
       render(repository.search(query))
     }
